@@ -248,8 +248,8 @@ CORAL did not improve this setting, so distribution alignment alone does not exp
 
 | Contributor | Contribution |
 |---|---|
-| Samra | Dataset preparation and audit; experimental design; implementation and execution of the four-model benchmark; result analysis; documentation and presentation. |
-| Samra | Dataset preparation and audit; experimental design; implementation and execution of the four-model benchmark; result analysis; documentation and presentation. |
+| Samra | Led the project design and dataset preparation and audit; implemented the cross-session, cross-subject, and adaptation protocols; ran the EEGNet, EEG-Conformer, and CORAL experiments; consolidated and interpreted the results; and prepared the repository documentation. |
+| Alya | Contributed to EEG data preprocessing; ran and validated the DeepConvNet and Riemannian classical baseline experiments; analyzed the resulting outputs; and prepared presentation slides and repository documentation.|
 
 
 ## Use of AI tools

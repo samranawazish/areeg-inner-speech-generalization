@@ -93,6 +93,7 @@ Utilities/Extractor.py
 | `train_loso_eegnet.py` | Protocol 2: leave-one-subject-out EEGNet experiment. |
 | `train_loso_riemannian.py` | Protocol 2: leave-one-subject-out Riemannian experiment. |
 | `train_adaptation.py` | Protocol 3: few-shot target-participant adaptation. |
+| `train_riemannian_ablation.py` | Riemannian ablation comparing tangent-space features with flattened covariance features. |
 
 Raw EEG files, virtual environments, caches, temporary timing runs, and neural-network checkpoints are intentionally excluded from GitHub. Compact CSV/JSON summaries and final figures are retained so reported results can be checked without downloading model weights.
 

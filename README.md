@@ -1,6 +1,6 @@
 # ArEEG Inner-Speech Generalization Benchmark
 
-A reproducible comparison of EEGNet, EEG-Conformer, DeepConvNet, and a Riemannian tangent-space baseline for decoding five Arabic inner-speech commands from low-density EEG. The main assignment experiment is **chronological within-participant cross-session generalization**. Additional scripts investigate leave-one-subject-out generalization, few-shot adaptation, and CORAL session alignment.
+A reproducible comparison of EEGNet, EEG-Conformer, DeepConvNet, and a Riemannian tangent-space baseline for decoding five Arabic inner-speech commands from low-density EEG. The main assignment experiment is chronological within-participant cross-session generalization. Additional scripts investigate leave-one-subject-out generalization, few-shot adaptation, and CORAL session alignment.
 
 ## Research question
 
@@ -111,7 +111,7 @@ For a typical participant with 15 sessions, this gives 11 training, 2 validation
 
 ### Shared preprocessing and seeds
 
-The neural models were evaluated with seeds **42, 123, and 2026**.
+The neural models were evaluated with seeds 42, 123, and 2026.
 
 ## Installation
 
@@ -223,11 +223,11 @@ Accuracy and macro-F1 are means across participants and then seeds. The `+/-` va
 
 ## Why the Riemannian baseline performed best
 
-The most important data property is the combination of **low spatial resolution and limited labelled data per participant**. ArEEG contains only eight EEG channels and approximately 250–425 training trials in each participant-specific chronological split.
+The most important data property is the combination of low spatial resolution and limited labelled data per participant. ArEEG contains only eight EEG channels and approximately 250–425 training trials in each participant-specific chronological split.
 
 The Riemannian pipeline estimates an \(8 \times 8\) covariance matrix for each trial and maps it into a compact 36-dimensional tangent-space representation. These features summarize relationships between EEG channels while substantially reducing the dimensionality of the original \(8 \times 1{,}200\) signal.
 
-A regularized linear classifier can learn from this compact representation with less data than the higher-capacity neural networks require. Consequently, the Riemannian pipeline achieved the highest cross-session accuracy of **23.43%**, exceeding the five-class chance level of **20%**. However, the improvement remains modest, confirming that cross-session Arabic inner-speech decoding is a challenging and noisy classification problem.
+A regularized linear classifier can learn from this compact representation with less data than the higher-capacity neural networks require. Consequently, the Riemannian pipeline achieved the highest cross-session accuracy of 23.43%, exceeding the five-class chance level of 20%. However, the improvement remains modest, confirming that cross-session Arabic inner-speech decoding is a challenging and noisy classification problem.
 
 ## Ablation studies
 
@@ -243,9 +243,9 @@ The tangent-space transformation was removed while keeping the covariance featur
 | Flat covariance without tangent mapping | 22.08% | **19.34%** | 2.927 |
 | Change after removing tangent mapping | −1.34 points | +0.35 points | +1.141 |
 
-Removing tangent-space mapping reduced accuracy by **1.34 percentage points** and increased test loss. The full pipeline achieved higher participant-level accuracy for 7 of the 12 participants, while two participants were tied and flat covariance performed better for three.
+Removing tangent-space mapping reduced accuracy by 1.34 percentage points and increased test loss. The full pipeline achieved higher participant-level accuracy for 7 of the 12 participants, while two participants were tied and flat covariance performed better for three.
 
-However, macro-F1 increased slightly without tangent mapping, and the paired accuracy difference was not statistically significant using the Wilcoxon signed-rank test (\(p = 0.064\)). Therefore, the ablation provides **partial support** for the importance of tangent-space mapping, but it does not prove that this component alone explains the Riemannian pipeline’s advantage.
+However, macro-F1 increased slightly without tangent mapping, and the paired accuracy difference was not statistically significant using the Wilcoxon signed-rank test (\(p = 0.064\)). Therefore, the ablation provides partial support for the importance of tangent-space mapping, but it does not prove that this component alone explains the Riemannian pipeline’s advantage.
 
 ### 2. Conformer–CORAL component analysis
 
@@ -253,13 +253,13 @@ A second comparison evaluated whether explicit alignment of session-level featur
 
 | Conformer condition | Accuracy | Macro-F1 |
 |---|---:|---:|
-| Without CORAL | **18.99%** | **16.84%** |
+| Without CORAL | 18.99% | 16.84% |
 | With CORAL, weight = 0.1 | 18.94% | 15.90% |
 | Change with CORAL | −0.05 points | −0.94 points |
 
-Adding CORAL did not improve cross-session performance. Accuracy decreased slightly, while macro-F1 decreased by **0.94 percentage points**. This suggests that aligning second-order feature statistics alone was insufficient to address the session shift in this dataset.
+Adding CORAL did not improve cross-session performance. Accuracy decreased slightly, while macro-F1 decreased by 0.94 percentage points. This suggests that aligning second-order feature statistics alone was insufficient to address the session shift in this dataset.
 
-Together, the two analyses indicate that the Riemannian pipeline’s advantage is more consistent with its **compact covariance-based representation and suitability for limited training data** than with distribution alignment alone.
+Together, the two analyses indicate that the Riemannian pipeline’s advantage is more consistent with its compact covariance-based representation and suitability for limited training data than with distribution alignment alone.
 
 Protocol 2: Cross-subject generalization
 

@@ -1,0 +1,15 @@
+{
+  "test_subject": "sub4",
+  "validation_subject": "sub5",
+  "best_epoch": 11,
+  "best_validation_loss": 1.6206900396347046,
+  "best_validation_macro_f1": 0.1871543140226067,
+  "test_loss": 1.6263230803807576,
+  "test_accuracy": 0.20266666666666666,
+  "test_balanced_accuracy": 0.2026666666666667,
+  "test_macro_f1": 0.1892400125989146,
+  "n_train": 3825,
+  "n_validation": 375,
+  "n_test": 375,
+  "seed": 2026
+}

@@ -1,0 +1,16 @@
+{
+  "test_subject": "sub7",
+  "validation_subject": "sub8",
+  "model": "eegnet",
+  "best_epoch": 8,
+  "best_validation_loss": 1.6161371609743904,
+  "best_validation_macro_f1": 0.20520605513059126,
+  "test_loss": 1.6137365096181795,
+  "test_accuracy": 0.23204419889502761,
+  "test_balanced_accuracy": 0.23183530820034778,
+  "test_macro_f1": 0.2275777848442994,
+  "n_train": 3839,
+  "n_validation": 374,
+  "n_test": 362,
+  "seed": 2026
+}

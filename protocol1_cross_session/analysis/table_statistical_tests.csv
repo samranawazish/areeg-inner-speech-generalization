@@ -1,0 +1,17 @@
+family,metric,comparison,mean_difference,statistic,p_value,p_value_holm,exploratory
+accuracy_vs_chance,test_accuracy,EEG-Conformer > 0.20,-0.010090702947845821,29.0,0.784423828125,1.0,True
+accuracy_vs_chance,test_accuracy,EEG-Conformer + CORAL > 0.20,-0.010589569160997743,31.0,0.73486328125,1.0,True
+accuracy_vs_chance,test_accuracy,EEGNet > 0.20,0.0016213151927437566,40.5,0.463134765625,1.0,True
+accuracy_vs_chance,test_accuracy,Riemannian > 0.20,0.03425170068027209,48.0,0.017578125,0.0703125,True
+pairwise_test_accuracy,test_accuracy,EEG-Conformer - EEG-Conformer + CORAL,0.0004988662131519238,32.5,0.9853515625,0.9853515625,True
+pairwise_test_accuracy,test_accuracy,EEG-Conformer - EEGNet,-0.011712018140589572,24.0,0.46484375,0.9296875,True
+pairwise_test_accuracy,test_accuracy,EEG-Conformer - Riemannian,-0.044342403628117914,16.0,0.07373046875,0.36865234375,True
+pairwise_test_accuracy,test_accuracy,EEG-Conformer + CORAL - EEGNet,-0.012210884353741498,25.0,0.2919921875,0.8759765625,True
+pairwise_test_accuracy,test_accuracy,EEG-Conformer + CORAL - Riemannian,-0.04484126984126984,12.0,0.0341796875,0.205078125,True
+pairwise_test_accuracy,test_accuracy,EEGNet - Riemannian,-0.032630385487528335,21.0,0.17626953125,0.705078125,True
+pairwise_test_macro_f1,test_macro_f1,EEG-Conformer - EEG-Conformer + CORAL,0.009459515861428168,26.0,0.33935546875,1.0,True
+pairwise_test_macro_f1,test_macro_f1,EEG-Conformer - EEGNet,-0.0073400202847553825,29.0,0.4697265625,1.0,True
+pairwise_test_macro_f1,test_macro_f1,EEG-Conformer - Riemannian,-0.02143964675532982,28.0,0.423828125,1.0,True
+pairwise_test_macro_f1,test_macro_f1,EEG-Conformer + CORAL - EEGNet,-0.016799536146183555,22.0,0.20361328125,1.0,True
+pairwise_test_macro_f1,test_macro_f1,EEG-Conformer + CORAL - Riemannian,-0.030899162616757996,26.0,0.33935546875,1.0,True
+pairwise_test_macro_f1,test_macro_f1,EEGNet - Riemannian,-0.01409962647057444,33.0,0.67724609375,1.0,True

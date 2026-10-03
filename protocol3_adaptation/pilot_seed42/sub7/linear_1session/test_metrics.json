@@ -1,0 +1,15 @@
+{
+  "target_subject": "sub7",
+  "method": "linear",
+  "calibration_sessions": 1,
+  "calibration_trials": 25,
+  "test_sessions": 2,
+  "test_trials": 50,
+  "trainable_parameters": 2965,
+  "adaptation_epochs": 20,
+  "test_loss": 1.605442008972168,
+  "test_accuracy": 0.2,
+  "test_balanced_accuracy": 0.2,
+  "test_macro_f1": 0.15968831168831168,
+  "seed": 42
+}

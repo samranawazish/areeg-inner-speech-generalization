@@ -1,0 +1,15 @@
+{
+  "target_subject": "sub0",
+  "method": "full",
+  "calibration_sessions": 1,
+  "calibration_trials": 25,
+  "test_sessions": 2,
+  "test_trials": 50,
+  "trainable_parameters": 4197,
+  "adaptation_epochs": 20,
+  "test_loss": 1.6205698156356811,
+  "test_accuracy": 0.24,
+  "test_balanced_accuracy": 0.24,
+  "test_macro_f1": 0.21276190476190476,
+  "seed": 42
+}

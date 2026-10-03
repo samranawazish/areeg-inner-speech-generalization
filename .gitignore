@@ -1,0 +1,26 @@
+.venv*
+.vscode
+__pycache__/
+*.pyc
+./env
+./env
+env
+env
+*env*
+CSVData/
+# Model checkpoints
+*.pt
+*.pth
+*.ckpt
+
+# Per-subject experiment outputs
+**/sub*/
+
+# Large prediction and training-history files
+**/test_predictions.csv
+**/training_history.csv
+**/adaptation_history.csv
+**/refit_history.csv
+*.pt
+*.pth
+*.ckpt

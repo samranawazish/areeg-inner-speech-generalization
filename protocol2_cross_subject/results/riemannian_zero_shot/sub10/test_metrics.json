@@ -1,0 +1,18 @@
+{
+  "test_subject": "sub10",
+  "validation_subject": "sub11",
+  "model": "riemannian_tangent_logreg",
+  "selected_C": 0.01,
+  "validation_loss": 1.62968684107059,
+  "validation_accuracy": 0.20967741935483872,
+  "validation_balanced_accuracy": 0.21037837837837842,
+  "validation_macro_f1": 0.19332338198437268,
+  "test_loss": 1.6134504805583065,
+  "test_accuracy": 0.21220930232558138,
+  "test_balanced_accuracy": 0.2137610086214888,
+  "test_macro_f1": 0.17207798892730164,
+  "n_train": 3859,
+  "n_validation": 372,
+  "n_test": 344,
+  "seed": 42
+}

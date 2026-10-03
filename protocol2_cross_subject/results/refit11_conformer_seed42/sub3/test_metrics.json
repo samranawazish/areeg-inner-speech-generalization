@@ -1,0 +1,17 @@
+{
+  "test_subject": "sub3",
+  "refit_all_sources": true,
+  "refit_training_size": 4050,
+  "validation_subject": "sub4",
+  "best_epoch": 17,
+  "best_validation_loss": 1.6079080479939778,
+  "best_validation_macro_f1": 0.23844937483347084,
+  "test_loss": 1.6374392616181146,
+  "test_accuracy": 0.23238095238095238,
+  "test_balanced_accuracy": 0.23238095238095235,
+  "test_macro_f1": 0.22834666916567242,
+  "n_train": 3675,
+  "n_validation": 375,
+  "n_test": 525,
+  "seed": 42
+}

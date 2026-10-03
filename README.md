@@ -222,19 +222,51 @@ Accuracy and macro-F1 are means across participants and then seeds. The `+/-` va
 
 ## Why the Riemannian baseline performed best
 
-The key data property is the combination of **low spatial resolution and limited labelled data per participant**: only eight channels and roughly 250-425 training trials for each chronological subject-specific split. Under these conditions, estimating an 8 x 8 covariance matrix and mapping it to a 36-dimensional tangent-space vector gives a compact summary of spatial relationships. A regularized linear classifier can learn from this representation with much less data than the neural networks require. The result is modest but consistent with a data-limited, noisy inner-speech task: Riemannian accuracy is above the 20% chance level, while the larger neural models do not obtain a clear advantage.
+The most important data property is the combination of **low spatial resolution and limited labelled data per participant**. ArEEG contains only eight EEG channels and approximately 250–425 training trials in each participant-specific chronological split.
 
-## Ablation status
+The Riemannian pipeline estimates an \(8 \times 8\) covariance matrix for each trial and maps it into a compact 36-dimensional tangent-space representation. These features summarize relationships between EEG channels while substantially reducing the dimensionality of the original \(8 \times 1{,}200\) signal.
 
-The completed Conformer/CORAL comparison is a controlled component analysis:
+A regularized linear classifier can learn from this compact representation with less data than the higher-capacity neural networks require. Consequently, the Riemannian pipeline achieved the highest cross-session accuracy of **23.43%**, exceeding the five-class chance level of **20%**. However, the improvement remains modest, confirming that cross-session Arabic inner-speech decoding is a challenging and noisy classification problem.
+
+## Ablation studies
+
+Two controlled comparisons were conducted to examine the contribution of specific pipeline components.
+
+### 1. Riemannian representation ablation
+
+The tangent-space transformation was removed while keeping the covariance features and the remaining evaluation procedure unchanged.
+
+| Riemannian condition | Accuracy | Macro-F1 | Test loss |
+|---|---:|---:|---:|
+| Full tangent-space pipeline | **23.43%** | 18.99% | **1.786** |
+| Flat covariance without tangent mapping | 22.08% | **19.34%** | 2.927 |
+| Change after removing tangent mapping | −1.34 points | +0.35 points | +1.141 |
+
+Removing tangent-space mapping reduced accuracy by **1.34 percentage points** and increased test loss. The full pipeline achieved higher participant-level accuracy for 7 of the 12 participants, while two participants were tied and flat covariance performed better for three.
+
+However, macro-F1 increased slightly without tangent mapping, and the paired accuracy difference was not statistically significant using the Wilcoxon signed-rank test (\(p = 0.064\)). Therefore, the ablation provides **partial support** for the importance of tangent-space mapping, but it does not prove that this component alone explains the Riemannian pipeline’s advantage.
+
+### 2. Conformer–CORAL component analysis
+
+A second comparison evaluated whether explicit alignment of session-level feature distributions improved the EEG-Conformer.
 
 | Conformer condition | Accuracy | Macro-F1 |
 |---|---:|---:|
-| Without CORAL | 18.99% | 16.84% |
-| With CORAL, weight 0.1 | 18.94% | 15.90% |
+| Without CORAL | **18.99%** | **16.84%** |
+| With CORAL, weight = 0.1 | 18.94% | 15.90% |
+| Change with CORAL | −0.05 points | −0.94 points |
 
-CORAL did not improve this setting, so distribution alignment alone does not explain the Riemannian advantage. 
+Adding CORAL did not improve cross-session performance. Accuracy decreased slightly, while macro-F1 decreased by **0.94 percentage points**. This suggests that aligning second-order feature statistics alone was insufficient to address the session shift in this dataset.
 
+Together, the two analyses indicate that the Riemannian pipeline’s advantage is more consistent with its **compact covariance-based representation and suitability for limited training data** than with distribution alignment alone.
+
+Protocol 2: Cross-subject generalization
+
+A leave-one-subject-out evaluation tested whether models trained on 11 participants could classify an entirely unseen participant. Performance remained close to the 20% chance level: Riemannian achieved 20.79%, EEGNet 20.11%, and EEG-Conformer 20.10% accuracy. This demonstrates substantial variability between participants.
+
+Protocol 3: Few-shot adaptation
+
+A pretrained population EEGNet was adapted using one or four early sessions from the target participant and evaluated on later sessions. Adaptation improved development accuracy from 22.00% to 24.00%, but confirmatory accuracy decreased from 18.99% to 17.42%. Therefore, the observed development improvement did not generalize to the confirmatory evaluation.
 ## Reproducibility notes
 
 - Run commands from the repository root.
@@ -249,7 +281,7 @@ CORAL did not improve this setting, so distribution alignment alone does not exp
 | Contributor | Contribution |
 |---|---|
 | Samra | Led the project design and dataset preparation and audit; implemented the cross-session, cross-subject, and adaptation protocols; ran the EEGNet, EEG-Conformer, and CORAL experiments; consolidated and interpreted the results; and prepared the repository documentation. |
-| Alya | Contributed to EEG data preprocessing; ran and validated the DeepConvNet and Riemannian classical baseline experiments; analyzed the resulting outputs; and prepared presentation slides and repository documentation.|
+| Alya | Contributed to EEG data preprocessing; ran and validated the DeepConvNet and Riemannian classical baseline experiments with ablation; analyzed the resulting outputs; and prepared presentation slides and repository documentation.|
 
 
 ## Use of AI tools

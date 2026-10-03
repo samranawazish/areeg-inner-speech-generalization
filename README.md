@@ -289,4 +289,3 @@ A pretrained population EEGNet was adapted using one or four early sessions from
 
 OpenAI ChatGPT/Codex was used to assist with code debugging, repository organization, README editing, result-table formatting, and presentation organization. All experiment commands were executed by the author, and all reported numeric results were checked against locally generated CSV/JSON outputs. AI-generated suggestions were reviewed before inclusion.
 
-- **Repository code:** see `LICENSE`. If code derived from the official ArEEG GPL-3.0 repository is retained, this repository must use a GPL-compatible license and preserve attribution.

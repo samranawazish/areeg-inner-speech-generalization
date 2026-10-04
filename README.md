@@ -21,7 +21,7 @@ This project is connected to work on robust inner-speech EEG decoding across ses
 - **Task:** five-class classification: `Down`, `Left`, `Right`, `Select`, `Up`
 - **Acquisition:** 8 EEG channels, sampled at 250 Hz
 
-The publication reports 4,650 trials. The local extractor recovered 4,606 trials, and the quality-controlled benchmark retained **4,575 trials**. This difference is reported rather than hidden; `sanity_check.py` should be run after preparation to print the exact retained counts and exclusions for the local copy.
+The publication reports 4,650 trials. The local extractor recovered 4,606 trials, and the quality-controlled benchmark retained **4,575 trials**. `sanity_check.py` should be run after preparation to print the exact retained counts and exclusions for the local copy.
 
 ### Prepared-data representation
 

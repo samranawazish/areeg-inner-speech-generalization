@@ -95,8 +95,6 @@ Utilities/Extractor.py
 | `train_adaptation.py` | Protocol 3: few-shot target-participant adaptation. |
 | `train_riemannian_ablation.py` | Riemannian ablation comparing tangent-space features with flattened covariance features. |
 
-Raw EEG files, virtual environments, caches, temporary timing runs, and neural-network checkpoints are intentionally excluded from GitHub. Compact CSV/JSON summaries and final figures are retained so reported results can be checked without downloading model weights.
-
 ## Experimental protocol
 
 ### Protocol 1: chronological cross-session generalization
@@ -107,7 +105,7 @@ Each participant is modelled separately. Sessions are ordered chronologically:
 - **Validation:** the next two sessions
 - **Test:** the final two sessions
 
-For a typical participant with 15 sessions, this gives 11 training, 2 validation, and 2 test sessions. Splitting by whole sessions prevents trials from the same recording session appearing in more than one partition. Hyperparameters and early stopping use validation data only; test sessions are evaluated after model selection.
+For participants with 15 sessions, usually this gives 11 training, 2 validation, and 2 test sessions. Splitting by whole sessions prevents trials from the same recording session appearing in more than one partition. Hyperparameters and early stopping use validation data only; test sessions are evaluated after model selection.
 
 ### Shared preprocessing and seeds
 

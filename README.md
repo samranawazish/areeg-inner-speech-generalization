@@ -223,7 +223,7 @@ Accuracy and macro-F1 are means across participants and then seeds. The `+/-` va
 
 The most important data property is the combination of low spatial resolution and limited labelled data per participant. ArEEG contains only eight EEG channels and approximately 250–425 training trials in each participant-specific chronological split.
 
-The Riemannian pipeline estimates an \(8 \times 8\) covariance matrix for each trial and maps it into a compact 36-dimensional tangent-space representation. These features summarize relationships between EEG channels while substantially reducing the dimensionality of the original \(8 \times 1{,}200\) signal.
+The Riemannian pipeline estimates an \(8 \times 8\) covariance matrix for each trial and maps it into a compact 36-dimensional tangent-space representation. These features summarize relationships between EEG channels while substantially reducing the dimensionality of the original \(8 \times 1200\) signal.
 
 A regularized linear classifier can learn from this compact representation with less data than the higher-capacity neural networks require. Consequently, the Riemannian pipeline achieved the highest cross-session accuracy of 23.43%, exceeding the five-class chance level of 20%. However, the improvement remains modest, confirming that cross-session Arabic inner-speech decoding is a challenging and noisy classification problem.
 
